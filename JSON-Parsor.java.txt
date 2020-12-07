@@ -1,0 +1,19 @@
+ for(int i =0 ; i< obj.size() ; i++) {
+JSONObject tempObj = (JSONObject) obj.get(i);
+String uri = (String) tempObj.get("uri");
+String status = null ;
+System.out.println(uri);
+System.out.println((tempObj.get("elements")));
+JSONArray elementsArray = (JSONArray) tempObj.get("elements");
+System.out.println(elementsArray);
+for(int j =0 ; j< elementsArray.size() ; j++) {
+JSONObject elementOBJ = (JSONObject) elementsArray.get(i);
+JSONArray arrayAfter = (JSONArray) elementOBJ.get("after");
+for(int k =0 ; k< arrayAfter.size() ; k++) {
+JSONObject resultObj = (JSONObject) arrayAfter.get(i);
+JSONObject res = (JSONObject) resultObj.get("result");
+status = (String) res.get("status");
+}
+}
+System.out.println(uri +"---->" + status);
+}
